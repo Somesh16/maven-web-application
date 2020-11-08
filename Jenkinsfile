@@ -28,5 +28,15 @@ node
              sh "scp -o StrictHostKeyChecking=No target/maven-web-application.war ec2-user@65.0.130.128:/opt/apache-tomcat-9.0.39/webapps"
          }
     }
+    stage('Creating docker image')
+    {
+        sshagent(['Docker_Server']) 
+        {
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@65.0.3.0: pwd"
+        }
+    
+    }
+ }
+    
     
 }
