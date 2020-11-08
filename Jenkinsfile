@@ -48,7 +48,16 @@ node
             sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker push somesh16/myapp:${BUILD_NUMBER} "
         }
     }
-}
+    stage('Login to dockerhub and pushing docker image')
+    {
+        sshagent(['Docker'])
+        {
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker rm -f tomcat || true "
+             sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232  docker run -d -p 8080:8080 --name tomcat somesh16/myapp:${BUILD_NUMBER} "
+        }
+    }
+}       
+
         
   
     
