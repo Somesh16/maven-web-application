@@ -1,6 +1,6 @@
 node
 {
-    properties([pipelineTriggers([cron(''), pollSCM('* * * * *')])])
+    properties([pipelineTriggers([cron(''), pollSCM('* * * * *')])]) 
     def mavenHome =tool name: "maven"
     stage('Checkout code from Github')
     {
