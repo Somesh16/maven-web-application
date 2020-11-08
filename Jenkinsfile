@@ -39,14 +39,17 @@ node
     }
     stage('Login to dockerhub and pushing docker image')
     {
-        withCredentials([string(credentialsId: 'Dockerhub', variable: 'Dockerhub')]) 
+        sshagent(['Docker'])
         {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker login -u somesh16 -p ${Dockerhub}"
+            withCredentials([string(credentialsId: 'Dockerhub', variable: 'Dockerhub')]) 
+            {
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker login -u somesh16 -p ${Dockerhub}"
+            }
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker push somesh16/myapp:${BUILD_NUMBER} "
         }
-        sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker push somesh16/myapp:${BUILD_NUMBER} "
     }
 }
         
-    
+  
     
 
