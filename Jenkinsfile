@@ -39,10 +39,11 @@ node
     }
     stage('Login to dockerhub and pushing docker image')
     {
-        withCredentials([string(credentialsId: 'Dockerhub_Credentials', variable: 'Dockerhub_Credentials')]) 
+        withCredentials([string(credentialsId: 'Dockerhub', variable: 'Dockerhub')]) 
         {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker login -u somesh16 -p ${Dockerhub_Credentials}"
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker login -u somesh16 -p ${Dockerhub}"
         }
+        sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker push somesh16/myapp:${BUILD_NUMBER} "
     }
 }
         
