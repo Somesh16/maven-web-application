@@ -1,4 +1,4 @@
-properties([pipelineTriggers([cron(''), pollSCM('* * * * *')])])
+properties([pipelineTriggers([cron(''), pollSCM('* * * * *')])]) 
 node
 { 
     def mavenHome =tool name: "maven"
