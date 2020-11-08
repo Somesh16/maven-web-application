@@ -5,7 +5,7 @@ node
     {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '53bb0b77-07a1-4d97-b58d-d82c6563c5a7', url: 'https://github.com/Somesh16/maven-web-application.git']]])
     }
-  /*  stage('Compile the code')
+      stage('Compile the code')
     {
         sh "${mavenHome}/bin/mvn compile"
     }
@@ -27,7 +27,7 @@ node
          {
              sh "scp -o StrictHostKeyChecking=No target/maven-web-application.war ec2-user@65.0.130.128:/opt/apache-tomcat-9.0.39/webapps"
          }
-    } */
+    } 
     stage('Creating docker image')
     {
         sshagent(['Docker'])
