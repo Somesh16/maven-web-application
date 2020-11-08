@@ -34,9 +34,19 @@ node
         {
             sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ubuntu@13.232.234.232:/home/ubuntu"
             sh "scp -o StrictHostKeyChecking=no Dockerfile ubuntu@13.232.234.232:/home/ubuntu"
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker build -t tommy ."
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker build -t somesh16/myapp:${BUILD_NUMBER} ."
         }
+    }
+    stage('Login to dockerhub and pushing docker image')
+    {
+        withCredentials([string(credentialsId: 'Dockerhub_Credentials', variable: 'Dockerhub_Credentials')]) 
+        {
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker login -u somesh16 -p ${Dockerhub_Credentials}"
+        }
+    }
     
+}
+        
     }
  }
     
