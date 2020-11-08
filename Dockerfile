@@ -1,3 +1,3 @@
 FROM tomcat:8.5
 MAINTAINER Somesh
-COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
+COPY /home/ubuntu/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
