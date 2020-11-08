@@ -41,9 +41,9 @@ node
     {
         withCredentials([string(credentialsId: 'Dockerhub', variable: 'Dockerhub')]) 
         {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker login -u somesh16 -p ${Dockerhub}"
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker login -u somesh16 -p ${Dockerhub}"
         }
-        sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker push somesh16/myapp:${BUILD_NUMBER} "
+        sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker push somesh16/myapp:${BUILD_NUMBER} "
     }
 }
         
