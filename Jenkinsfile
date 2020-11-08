@@ -33,6 +33,7 @@ node
         sshagent(['Docker_Server']) 
         {
             sh "ssh -o StrictHostKeyChecking=no ubuntu@65.0.3.0: pwd"
+             sh "ssh -o StrictHostKeyChecking=no ubuntu@65.0.3.0: whoami"
         }
     
     }
