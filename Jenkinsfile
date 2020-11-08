@@ -32,8 +32,8 @@ node
     {
         sshagent(['Docker'])
         {
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 pwd"
-             sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 whoami"
+            sh "scp -o StrictHostKeyChecking=no  Dockerfile ubuntu@13.232.234.232: /home/ubuntu"
+             sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.234.232 docker build -t tommy ."
         }
     
     }
