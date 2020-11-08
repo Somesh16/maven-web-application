@@ -44,11 +44,8 @@ node
             sh "ssh -o StrictHostKeyChecking=no ubuntu@3.232.234.232 docker login -u somesh16 -p ${Dockerhub_Credentials}"
         }
     }
-    
 }
         
-    }
- }
     
     
 
